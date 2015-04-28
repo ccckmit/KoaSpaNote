@@ -22,7 +22,7 @@ function response(res, code, msg) {
 }
 
 app.use(route.get('/', function*() {
-  this.redirect('/web/wikidown.html');
+  this.redirect('/web/note.html');
 }));
 
 var mime = { ".css":"text/css", ".html": "text/html", ".htm":"text/html", ".jpg":"image/jpg", ".png":"image/png", ".gif":"image/gif", ".pdf":"application/pdf"};
