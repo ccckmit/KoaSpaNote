@@ -37,18 +37,9 @@ function fileMimeType(path) {
 app.use(route.get(/\/web\/.*/, function *toStatic() {
   var req = this.request, res = this.response;
   c.log('get %s', this.path);
-/*  
-  if (this.path.startsWith("/list")) {
-    response(res, 200, JSON.stringify(notes));
-  else if (this.path.startsWith("/note/")) {
-    id = 
-    response(res, 200, JSON.stringify(notes));
-  } else { */
-  c.log('get %s', this.path);
-    var mimetype = fileMimeType(this.path)
-    if (mimetype) this.type = mimetype+";";
-    this.body = fs.createReadStream(__dirname+this.path);
-//  }
+  var mimetype = fileMimeType(this.path)
+  if (mimetype) this.type = mimetype+";";
+  this.body = fs.createReadStream(__dirname+this.path);
 }));
 
 app.use(route.get("/list", function *list() {
